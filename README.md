@@ -297,28 +297,61 @@ These results indicate reasonable calibration for median predictions while sligh
 
 # SQL Data Warehouse
 
-The project also includes a relational data warehouse for analytics.
+The project includes a small analytical data warehouse built using **SQL Server and a star schema design**.
 
-Structure
+The warehouse separates raw ingestion, core transformations, and analytics-ready tables to support downstream analysis and visualization.
+
+### Schema Layers
 
 ```
-stg   staging layer
+stg   staging layer (raw ingested data)
 dim   dimension tables
-fact  player metrics
+fact  player activity metrics
 mart  analytics tables
 ```
 
-Example tables
+### Star Schema Design
+
+A **small star schema** is used to organize the analytical data model.
+
+Fact table:
 
 ```
-dim.app
-dim.genre
-dim.category
-fact.player_metrics
-mart.retention_analysis
+fact_player_metrics
 ```
 
-Genres and categories are normalized using SQL transformations.
+Dimension tables:
+
+```
+dim_app
+dim_genre
+dim_category
+dim_price_tier
+```
+
+The fact table stores player activity metrics, while dimension tables contain descriptive attributes about each game.
+
+This structure allows efficient analytical queries such as:
+
+* retention by genre
+* retention by category
+* retention by price range
+
+### Example Relationships
+
+```
+              dim_genre
+                  │
+                  │
+dim_category ── fact_player_metrics ── dim_app
+                  │
+                  │
+            dim_price_tier
+```
+
+Genres and categories are normalized from the Steam Store metadata using SQL transformations (e.g., splitting multi-value fields and mapping them into dimension tables).
+
+This warehouse structure supports both **Tableau dashboards and downstream analysis queries**.
 
 ---
 
@@ -398,16 +431,6 @@ project_root
 
 ---
 
-# Future Improvements
-
-Potential improvements include
-
-* expanding dataset coverage across more Steam games
-* testing additional models such as LightGBM or XGBoost
-* adding feature importance analysis
-* improving forecast visualization in dashboards
-
----
 
 # License
 
