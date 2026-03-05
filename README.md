@@ -399,34 +399,17 @@ Lower-priced games tend to show stronger retention patterns than free titles in 
 
 ---
 
-# Repository Structure
+# Project Structure
 
 ```
-project_root
+steam_player_retention_analysis/
 │
-├─ src
-│  ├─ 01_collect_appids.py
-│  ├─ 02_pull_steamcharts_metrics.py
-│  ├─ 02b_pull_store_meta.py
-│  ├─ 03_build_panel_h3.py
-│  ├─ 04_model.py
-│  └─ config.py
+├── python/     # Data collection, model scripts
+├── sql/        # SQL schema, transformations, and queries
+├── data/       # Raw and processed datasets
+├── tableau/    # Tableau workbook and dashboard files
 │
-├─ sql
-│  ├─ 00_create_database.sql
-│  ├─ 01_create_schemas_and_tables.sql
-│  ├─ 02_load_staging.sql
-│  ├─ 03_transform_core.sql
-│  └─ 04_create_marts.sql
-│
-├─ tableau
-│  └─ dashboard.twb
-│
-├─ data
-│  ├─ raw
-│  └─ processed
-│
-└─ README.md
+└── README.md   # Project documentation
 ```
 
 ---
