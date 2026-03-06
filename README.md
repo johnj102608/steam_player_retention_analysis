@@ -1,4 +1,4 @@
-# steam_player_retention_analysis
+# Steam Player Retention Analysis
 
 This project analyzes and predicts player retention patterns for Steam games using a full data pipeline built with **Python, SQL, and Tableau**. The goal is to understand how player engagement evolves over time and identify game characteristics associated with stronger long-term retention.
 
