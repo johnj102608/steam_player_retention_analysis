@@ -359,6 +359,8 @@ This warehouse structure supports both **Tableau dashboards and downstream analy
 
 Two dashboards summarize the analysis.
 
+link: https://public.tableau.com/views/Steam_player_retention_analysis/PlayerCountOverview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
 ## Player Lifecycle
 
 Shows average player activity across a 12-month timeline.
